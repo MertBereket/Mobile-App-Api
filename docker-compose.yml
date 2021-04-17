@@ -1,0 +1,28 @@
+version: "3"
+services:
+  serve:
+    container_name: headline-serve
+    build:
+      context: .
+      dockerfile: ./docker/Dockerfile
+    expose:
+      - ${PORT}
+    restart: always
+    ports:
+      - "${PORT}:${PORT}"
+    env_file:
+      - .env
+    depends_on:
+      - database
+  database:
+    container_name: headline-db
+    image: mariadb:10.3
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_PASS}
+      MYSQL_DATABASE: ${DB_DATABASE}
+      MYSQL_USER: ${DB_USER}@localhost
+      MYSQL_PASSWORD: ${DB_PASS}
+    volumes:
+      - dbdata:/var/lib/mysql
+volumes:
+  dbdata:

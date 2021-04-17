@@ -1,0 +1,57 @@
+POST {{baseUrl}}/login HTTP/1.1
+Content-Type: application/json
+
+{
+    "EmailAddress": "mert@project.com",
+    "Password": "password"
+}
+
+###
+
+DELETE {{baseUrl}}/my-account HTTP/1.1
+Content-Type: application/json
+token: {{token}}
+
+{
+    "Password": "password"
+}
+
+###
+
+PUT {{baseUrl}}/my-account HTTP/1.1
+Content-Type: application/json
+token: {{token}}
+
+{
+    "FirstName": "mert",
+    "LastName": "bereket",
+    "EmailAddress": "bereket@project.com",
+    "Password": "password"
+}
+
+###
+
+PUT {{baseUrl}}/change-password HTTP/1.1
+Content-Type: application/json
+token: {{token}}
+
+{
+    "Password": "password",
+    "NewPassword": "password"
+}
+
+###
+
+POST {{baseUrl}}/password-control HTTP/1.1
+Content-Type: application/json
+token: {{token}}
+
+{
+    "Password": "password"
+}
+
+###
+
+GET {{baseUrl}}/token-decode HTTP/1.1
+Content-Type: application/json
+token: {{token}}
