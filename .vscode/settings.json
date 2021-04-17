@@ -5,7 +5,7 @@
       "token": "",
     },
     "stage": {
-      "baseUrl": "",
+      "baseUrl": "https://mobiles-app-api.herokuapp.com/",
       "token": ""
     }
   }
