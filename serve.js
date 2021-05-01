@@ -4,7 +4,7 @@ const routers = require("./routers");
 const HttpStatusCode = require("http-status-codes");
 
 app.get("/", function (req, res) {
-  res.json("Headline Serve Project");
+  res.json("Mobile App Api");
 });
 
 
