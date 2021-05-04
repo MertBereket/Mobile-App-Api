@@ -9,7 +9,7 @@ class UserValidator extends CommonUserValidator {
     try {
       await joi
         .object({
-          Id: joi.number().min(1).required(),
+          userID: joi.number().min(1).required(),
         })
         .validateAsync({ Id: parseInt(req.params.Id) });
       next();
@@ -22,16 +22,17 @@ class UserValidator extends CommonUserValidator {
     try {
       await joi
         .object({
-          Id: joi.number().required(),
-          FirstName: joi
+          userName: joi.string(),
+          userID: joi.number().required(),
+          name: joi
             .string()
             .max(100)
             .pattern(new RegExp("^[A-Za-zÇçÖöŞşÜüĞğİı ]+$")),
-          LastName: joi
+          surname: joi
             .string()
             .max(100)
             .pattern(new RegExp("^[A-Za-zÇçÖöŞşÜüĞğİı ]+$")),
-          EmailAddress: joi.string().max(200).email(),
+          eMail: joi.string().max(200).email(),
           UserTypeName: joi.string(),
         })
         .validateAsync(req.body);
@@ -45,19 +46,20 @@ class UserValidator extends CommonUserValidator {
     try {
       await joi
         .object({
-          FirstName: joi
+          userName: joi.string().required(),
+          name: joi
             .string()
             .max(100)
             .pattern(new RegExp("^[A-Za-zÇçÖöŞşÜüĞğİı ]+$"))
             .required(),
-          LastName: joi
+          surname: joi
             .string()
             .max(100)
             .pattern(new RegExp("^[A-Za-zÇçÖöŞşÜüĞğİı ]+$"))
             .required(),
-          EmailAddress: joi.string().max(200).email().required(),
+          eMail: joi.string().max(200).email().required(),
           UserTypeName: joi.string().required(),
-          Password: joi.string().max(99).required(),
+          password: joi.string().max(99).required(),
         })
         .validateAsync(req.body);
       next();

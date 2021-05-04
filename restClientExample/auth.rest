@@ -2,8 +2,8 @@ POST {{baseUrl}}/login HTTP/1.1
 Content-Type: application/json
 
 {
-    "EmailAddress": "mert@project.com",
-    "Password": "password"
+    "eMail": "mert@project.com",
+    "password": "password"
 }
 
 ###
@@ -13,7 +13,7 @@ Content-Type: application/json
 token: {{token}}
 
 {
-    "Password": "password"
+    "password": "password"
 }
 
 ###
@@ -23,10 +23,11 @@ Content-Type: application/json
 token: {{token}}
 
 {
-    "FirstName": "mert",
-    "LastName": "bereket",
-    "EmailAddress": "bereket@project.com",
-    "Password": "password"
+    "name": "mert",
+    "surname": "bereket",
+    "eMail": "mert@project.com",
+    "password": "password",
+    "userName": "MertBereket"
 }
 
 ###
@@ -36,7 +37,7 @@ Content-Type: application/json
 token: {{token}}
 
 {
-    "Password": "password",
+    "password": "password",
     "NewPassword": "password"
 }
 
@@ -47,7 +48,7 @@ Content-Type: application/json
 token: {{token}}
 
 {
-    "Password": "password"
+    "password": "password"
 }
 
 ###

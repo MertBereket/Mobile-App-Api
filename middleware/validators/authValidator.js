@@ -8,8 +8,8 @@ class AuthValidator {
     try {
       await joi
         .object({
-          EmailAddress: joi.string().email().max(200).required(),
-          Password: joi.string().max(99).required(),
+          eMail: joi.string().email().max(200).required(),
+          password: joi.string().max(99).required(),
         })
         .validateAsync(req.body);
       next();
@@ -35,7 +35,7 @@ class AuthValidator {
     try {
       await joi
         .object({
-          FirstName: joi
+          name: joi
             .string()
             .min(3)
             .max(100)

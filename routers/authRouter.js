@@ -11,8 +11,8 @@ const { errorSender } = require("../utils");
 router.post("/login", authValidator.login, async (req, res) => {
   try {
     const result = await commonTransactions.findOneAsync({
-      EmailAddress: req.body.EmailAddress,
-      Password: req.body.Password,
+      eMail: req.body.eMail,
+      password: req.body.password,
     });
     if (!result)
       throw errorSender.errorObject(
@@ -21,7 +21,7 @@ router.post("/login", authValidator.login, async (req, res) => {
       );
 
     const payload = {
-      UserID: result.Id,
+      UserID: result.userID,
       UserTypeName: result.UserTypeName,
     };
     const token = jwt.sign(payload, req.app.get("api_key"), {
@@ -43,7 +43,7 @@ router.delete(
     try {
       const result = await commonTransactions.deleteAsync(
         Object.assign(req.body, {
-          Id: req.decode.UserID,
+          UserID: req.decode.userID,
         })
       );
 
@@ -68,8 +68,8 @@ router.put(
   async (req, res) => {
     try {
       const result = await commonTransactions.updateAsync(req.body, {
-        Id: req.decode.UserID,
-        Password: req.body.Password,
+        UserID: req.decode.userID,
+        password: req.body.password,
       });
 
       if (!result.affectedRows)
@@ -93,10 +93,10 @@ router.put(
   async (req, res) => {
     try {
       const result = await commonTransactions.updateAsync(
-        { Password: req.body.NewPassword },
+        { password: req.body.NewPassword },
         {
-          Id: req.decode.UserID,
-          Password: req.body.Password,
+          UserID: req.decode.userID,
+          password: req.body.password,
         }
       );
       if (!result.affectedRows)
@@ -120,8 +120,8 @@ router.post(
   async (req, res) => {
     try {
       const result = await commonTransactions.findOneAsync({
-        Id: req.decode.UserID,
-        Password: req.body.Password,
+        UserID: req.decode.userID,
+        password: req.body.password,
       });
       if (!result)
         throw errorSender.errorObject(

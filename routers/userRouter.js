@@ -74,7 +74,7 @@ router.put(
   async (req, res) => {
     try {
       const result = await userTransactions.updateAsync(req.body, {
-        Id: req.body.Id,
+        userID: req.body.userID,
       });
       if (!result.affectedRows)
         throw errorSender.errorObject(
