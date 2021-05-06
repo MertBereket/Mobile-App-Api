@@ -10,6 +10,7 @@ app.get("/", function (req, res) {
 
 app.use(routers.authRouter);
 app.use(routers.userRouter);
+app.use(routers.masalarRouter);
 
 app.use((req, res, next) => {
   res.status(HttpStatusCode.NOT_FOUND).send("404 NOT FOUND");
