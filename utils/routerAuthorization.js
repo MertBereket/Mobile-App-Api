@@ -17,16 +17,19 @@ module.exports = {
   },
   masalar: {
     GET: {
-      Authorize: [Roles.Root, Roles.Administrator],
+      Authorize: [Roles.Root, Roles.Administrator, Roles.Manager],
     },
     DELETE: {
-      Authorize: [Roles.Root, Roles.Administrator],
+      Individual_Transactions: [Roles.Manager],
+      Authorize: [Roles.Root, Roles.Administrator, Roles.Manager],
     },
     PUT: {
-      Authorize: [Roles.Root, Roles.Administrator],
+      Individual_Transactions: [Roles.Manager],
+      Authorize: [Roles.Root, Roles.Administrator, Roles.Manager],
     },
     POST: {
-      Authorize: [Roles.Root, Roles.Administrator],
+      Individual_Transactions: [Roles.Manager],
+      Authorize: [Roles.Root, Roles.Administrator , Roles.Manager],
     },
   },
 };
