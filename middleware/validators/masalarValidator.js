@@ -23,7 +23,6 @@ class MasalarValidator extends CommonValidator {
     try {
       await joi
         .object({
-          ID: joi.number().required(),
           Ad: joi.string().max(20).required(),
         })
         .validateAsync(req.body);

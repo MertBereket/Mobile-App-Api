@@ -20,16 +20,13 @@ module.exports = {
       Authorize: [Roles.Root, Roles.Administrator, Roles.Manager],
     },
     DELETE: {
-      Individual_Transactions: [Roles.Manager],
-      Authorize: [Roles.Root, Roles.Administrator, Roles.Manager],
+      Authorize: [Roles.Root, Roles.Administrator],
     },
     PUT: {
-      Individual_Transactions: [Roles.Manager],
-      Authorize: [Roles.Root, Roles.Administrator, Roles.Manager],
+      Authorize: [Roles.Root, Roles.Administrator],
     },
     POST: {
-      Individual_Transactions: [Roles.Manager],
-      Authorize: [Roles.Root, Roles.Administrator , Roles.Manager],
+      Authorize: [Roles.Root, Roles.Administrator],
     },
   },
 };

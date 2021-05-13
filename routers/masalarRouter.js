@@ -45,20 +45,9 @@ router.delete(
   "/masalar",
   tokenControl,
   authControl,
-  limitedAuthControl,
   masalarValidator.bodyId,
   async (req, res) => {
     try {
-      if (req.Individual_Transactions) {
-        const masalar = await masalarTransactions.vwFindOneAsync({
-          ID: req.body.ID,
-        });
-        if (!masalar)
-          throw errorSender.errorObject(
-            HttpStatusCode.GONE,
-            "Unauthorizaton transaction!"
-          );
-      }
       const result = await masalarTransactions.deleteAsync(req.body, {
         ID: req.body.ID,
       });
@@ -80,21 +69,9 @@ router.put(
   "/masalar",
   tokenControl,
   authControl,
-  limitedAuthControl,
   masalarValidator.update,
   async (req, res) => {
     try {
-      if (req.Individual_Transactions) {
-        const masalar = await masalarTransactions.vwFindOneAsync({
-          ID: req.body.ID,
-          Ad: req.body.Ad,
-        });
-        if (!masalar)
-          throw errorSender.errorObject(
-            HttpStatusCode.GONE,
-            "Unauthorizaton transaction!"
-          );
-      }
       const result = await masalarTransactions.updateAsync(req.body, {
         ID: req.body.ID,
       });
@@ -121,25 +98,10 @@ router.post(
   "/masalar",
   tokenControl,
   authControl,
-  limitedAuthControl,
   masalarValidator.insert,
   async (req, res) => {
     try {
-      if (req.Individual_Transactions) {
-        const masalar = await masalarTransactions.vwFindOneAsync({
-          ID: req.body.ID,
-          Ad: req.body.Ad,
-        });
-        if (!masalar)
-          throw errorSender.errorObject(
-            HttpStatusCode.GONE,
-            "Unauthorizaton transaction!"
-          );
-      }
-      const result = await masalarTransactions.insertAsync({
-        ...req.body,
-        userID: req.decode.userID,
-      });
+      const result = await masalarTransactions.insertAsync(req.body);
       if (!result.affectedRows)
         throw errorSender.errorObject(
           HttpStatusCode.INTERNAL_SERVER_ERROR,
