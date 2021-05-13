@@ -1,0 +1,45 @@
+GET {{baseUrl}}/menu HTTP/1.1
+Content-Type: application/json
+token: {{token}}
+
+###
+
+
+GET {{baseUrl}}/menu/1 HTTP/1.1
+Content-Type: application/json
+token: {{token}}
+
+###
+
+POST {{baseUrl}}/menu HTTP/1.1
+Content-Type: application/json
+token: {{token}}
+
+{
+    "Ad": "İçecek",
+    "Kategori": "Deneme",
+    "Fiyat": 5
+}
+
+###
+
+DELETE {{baseUrl}}/menu HTTP/1.1
+Content-Type: application/json
+token: {{token}}
+
+{
+    "ID" : 4
+}
+
+###
+
+PUT {{baseUrl}}/menu HTTP/1.1
+Content-Type: application/json
+token: {{token}}
+
+{
+    "ID": 4,
+    "Ad": "İçeceklerimiz",
+    "Kategori": "Deneme",
+    "Fiyat": 9
+}

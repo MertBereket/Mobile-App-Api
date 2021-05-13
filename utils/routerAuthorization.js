@@ -29,4 +29,18 @@ module.exports = {
       Authorize: [Roles.Root, Roles.Administrator],
     },
   },
+  menu: {
+    GET: {
+      Authorize: [Roles.Root, Roles.Administrator, Roles.Manager],
+    },
+    DELETE: {
+      Authorize: [Roles.Root, Roles.Administrator],
+    },
+    PUT: {
+      Authorize: [Roles.Root, Roles.Administrator],
+    },
+    POST: {
+      Authorize: [Roles.Root, Roles.Administrator],
+    },
+  },
 };
