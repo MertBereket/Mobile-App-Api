@@ -5,7 +5,6 @@ const masalarTransactions = TransactionsFactory.creating("masalarTransactions");
 const masalarValidator = validators.masalarValidator;
 const tokenControl = verifyToken.tokenControl;
 const authControl = authorization.authControl;
-const limitedAuthControl = authorization.limitedAuthControl;
 const HttpStatusCode = require("http-status-codes");
 const { errorSender } = require("../utils");
 
