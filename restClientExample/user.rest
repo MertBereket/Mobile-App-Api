@@ -33,6 +33,7 @@ token: {{token}}
     "FirstName": "mert",
     "LastName": "bereket",
     "EmailAddress": "mert@project.com",
+    "Password": "password",
     "UserTypeName": "Administrator"
 }
 
