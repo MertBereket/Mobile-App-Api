@@ -21,7 +21,7 @@ router.post("/login", authValidator.login, async (req, res) => {
       );
 
     const payload = {
-      UserID: result.userID,
+      userID: result.userID,
       UserTypeName: result.UserTypeName,
     };
     const token = jwt.sign(payload, req.app.get("api_key"), {
