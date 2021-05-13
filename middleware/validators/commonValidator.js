@@ -23,7 +23,7 @@ class UserValidator {
     try {
       await joi
         .object({
-          Id: joi.number().required()
+          ID: joi.number().required()
         })
         .validateAsync(req.body);
       next();
