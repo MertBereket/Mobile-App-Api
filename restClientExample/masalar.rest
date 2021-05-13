@@ -5,7 +5,7 @@ token: {{token}}
 ###
 
 
-GET {{baseUrl}}/masalar/10 HTTP/1.1
+GET {{baseUrl}}/masalar/1 HTTP/1.1
 Content-Type: application/json
 token: {{token}}
 
@@ -36,6 +36,6 @@ Content-Type: application/json
 token: {{token}}
 
 {
-    "ID": 25,
-    "Ad": "x"
+    "ID": 1,
+    "Ad": "Bahçee"
 }

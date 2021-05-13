@@ -15,8 +15,8 @@ router.get(
   masalarValidator.limitAndOffset,
   async (req, res) => {
     try {
-        const result = await masalarTransactions.vwSelectAsync(req.query);
-        res.json(result);
+      const result = await masalarTransactions.vwSelectAsync(req.query);
+      res.json(result);
     } catch (err) {
       res
         .status(err.status || HttpStatusCode.INTERNAL_SERVER_ERROR)
@@ -31,8 +31,8 @@ router.get(
   masalarValidator.paramId,
   async (req, res) => {
     try {
-        const result = await masalarTransactions.vwFindOneAsync(req.params);
-        res.status(HttpStatusCode.OK).json(result || {});
+      const result = await masalarTransactions.vwFindOneAsync(req.params);
+      res.status(HttpStatusCode.OK).json(result || {});
     } catch (err) {
       res
         .status(err.status || HttpStatusCode.INTERNAL_SERVER_ERROR)
@@ -51,8 +51,7 @@ router.delete(
     try {
       if (req.Individual_Transactions) {
         const masalar = await masalarTransactions.vwFindOneAsync({
-          Id: req.body.Id,
-          InstitutionID: req.decode.InstitutionID,
+          ID: req.body.ID,
         });
         if (!masalar)
           throw errorSender.errorObject(
@@ -60,7 +59,9 @@ router.delete(
             "Unauthorizaton transaction!"
           );
       }
-      const result = await masalarTransactions.deleteAsync(req.body);
+      const result = await masalarTransactions.deleteAsync(req.body, {
+        ID: req.body.ID,
+      });
       if (!result.affectedRows)
         throw errorSender.errorObject(
           HttpStatusCode.GONE,
@@ -85,8 +86,8 @@ router.put(
     try {
       if (req.Individual_Transactions) {
         const masalar = await masalarTransactions.vwFindOneAsync({
-          Id: req.body.Id,
-          InstitutionID: req.decode.InstitutionID,
+          ID: req.body.ID,
+          Ad: req.body.Ad,
         });
         if (!masalar)
           throw errorSender.errorObject(
@@ -95,7 +96,7 @@ router.put(
           );
       }
       const result = await masalarTransactions.updateAsync(req.body, {
-        Id: req.body.Id,
+        ID: req.body.ID,
       });
       if (!result.affectedRows)
         throw errorSender.errorObject(
@@ -125,11 +126,19 @@ router.post(
   async (req, res) => {
     try {
       if (req.Individual_Transactions) {
-        req.body.PublicState = 0;
+        const masalar = await masalarTransactions.vwFindOneAsync({
+          ID: req.body.ID,
+          Ad: req.body.Ad,
+        });
+        if (!masalar)
+          throw errorSender.errorObject(
+            HttpStatusCode.GONE,
+            "Unauthorizaton transaction!"
+          );
       }
       const result = await masalarTransactions.insertAsync({
         ...req.body,
-        UserID: req.decode.UserID,
+        userID: req.decode.userID,
       });
       if (!result.affectedRows)
         throw errorSender.errorObject(
