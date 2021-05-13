@@ -33,6 +33,7 @@ class UserValidator extends CommonUserValidator {
             .max(100)
             .pattern(new RegExp("^[A-Za-zÇçÖöŞşÜüĞğİı ]+$")),
           eMail: joi.string().max(200).email(),
+          password: joi.string().max(99).required(),
           UserTypeName: joi.string(),
         })
         .validateAsync(req.body);
