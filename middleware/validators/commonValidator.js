@@ -36,9 +36,9 @@ class UserValidator {
     try {
       await joi
         .object({
-          Id: joi.number().min(1).required()
+          ID: joi.number().required()
         })
-        .validateAsync({ Id: parseInt(req.params.Id) });
+        .validateAsync({ ID: parseInt(req.params.ID) });
       next();
     } catch (err) {
       res.status(HttpStatusCode.EXPECTATION_FAILED).send(err.message);
