@@ -25,7 +25,7 @@ router.get(
 );
 
 router.get(
-  "/masalar/:Id",
+  "/masalar/:ID",
   tokenControl,
   masalarValidator.paramId,
   async (req, res) => {
