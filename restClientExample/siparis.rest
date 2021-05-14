@@ -1,0 +1,45 @@
+GET {{baseUrl}}/siparis HTTP/1.1
+Content-Type: application/json
+token: {{token}}
+
+###
+
+
+GET {{baseUrl}}/siparis/2 HTTP/1.1
+Content-Type: application/json
+token: {{token}}
+
+###
+
+POST {{baseUrl}}/siparis HTTP/1.1
+Content-Type: application/json
+token: {{token}}
+
+{
+    "masaID": 1,
+    "urun_adet": 3,
+    "menuID": 1
+}
+
+###
+
+DELETE {{baseUrl}}/siparis HTTP/1.1
+Content-Type: application/json
+token: {{token}}
+
+{
+    "ID" : 2
+}
+
+###
+
+PUT {{baseUrl}}/siparis HTTP/1.1
+Content-Type: application/json
+token: {{token}}
+
+{
+    "ID": 2,
+    "masaID": 4,
+    "urun_adet": 8,
+    "menuID": 1
+}

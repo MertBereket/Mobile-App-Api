@@ -43,4 +43,18 @@ module.exports = {
       Authorize: [Roles.Root, Roles.Administrator],
     },
   },
+  siparis: {
+    GET: {
+      Authorize: [Roles.Root, Roles.Administrator, Roles.Manager],
+    },
+    DELETE: {
+      Authorize: [Roles.Root, Roles.Administrator, Roles.Manager],
+    },
+    PUT: {
+      Authorize: [Roles.Root, Roles.Administrator, Roles.Manager],
+    },
+    POST: {
+      Authorize: [Roles.Root, Roles.Administrator, Roles.Manager],
+    },
+  },
 };
