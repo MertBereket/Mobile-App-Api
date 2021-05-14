@@ -25,7 +25,7 @@ router.get(
 );
 
 router.get(
-  "/menu/:Id",
+  "/menu/:ID",
   tokenControl,
   menuValidator.paramId,
   async (req, res) => {
