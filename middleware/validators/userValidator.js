@@ -9,7 +9,7 @@ class UserValidator extends CommonUserValidator {
     try {
       await joi
         .object({
-          userID: joi.number().min(1).required(),
+          ID: joi.number().min(1).required(),
         })
         .validateAsync({ Id: parseInt(req.params.Id) });
       next();
@@ -23,7 +23,7 @@ class UserValidator extends CommonUserValidator {
       await joi
         .object({
           userName: joi.string(),
-          userID: joi.number().required(),
+          ID: joi.number().required(),
           name: joi
             .string()
             .max(100)

@@ -27,7 +27,7 @@ router.get(
 );
 
 router.get(
-  "/user/:Id",
+  "/user/:ID",
   tokenControl,
   authControl,
   userValidator.paramId,
