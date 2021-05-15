@@ -6,7 +6,7 @@
     },
     "stage": {
       "baseUrl": "https://mobiles-app-api.herokuapp.com/",
-      "token": ""
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VyVHlwZU5hbWUiOiJSb290IiwiaWF0IjoxNjIxMTAwNjkxLCJleHAiOjE2MjE3MDU0OTF9.dG_DjQPhLc1ChqJWTPyFdK34XVM35O2je2sv9E0lTIo"
     }
   }
 }
