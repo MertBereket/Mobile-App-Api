@@ -15,11 +15,12 @@ Content-Type: application/json
 token: {{token}}
 
 {
-    "FirstName": "mert",
-    "LastName": "bereket",
-    "EmailAddress": "mert@project.com",
-    "Password": "password",
-    "UserTypeName": "Manager"
+    "userName": "BarisArslan",
+    "name": "Barış",
+    "surname": "Arslan",
+    "eMail": "baris@project.com",
+    "password": "password",
+    "UserTypeName": "Administrator"
 }
 
 ###
@@ -29,6 +30,7 @@ Content-Type: application/json
 token: {{token}}
 
 {
+    "userName": "MertBereket",
     "Id": 31,
     "FirstName": "mert",
     "LastName": "bereket",

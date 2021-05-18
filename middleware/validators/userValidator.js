@@ -35,6 +35,7 @@ class UserValidator extends CommonUserValidator {
           eMail: joi.string().max(200).email(),
           password: joi.string().max(99).required(),
           UserTypeName: joi.string(),
+          userName: joi.string(),
         })
         .validateAsync(req.body);
       next();
@@ -61,6 +62,7 @@ class UserValidator extends CommonUserValidator {
           eMail: joi.string().max(200).email().required(),
           UserTypeName: joi.string().required(),
           password: joi.string().max(99).required(),
+          userName: joi.string().required(),
         })
         .validateAsync(req.body);
       next();
