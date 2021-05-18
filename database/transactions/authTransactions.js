@@ -5,7 +5,7 @@ class AuthTransactions {
 
   additiveUserTypesAsync(UserTypeName) {
     return queryAsync(
-      `SELECT UserTypeName FROM tblUserTypeName WHERE userTypeNumber<(SELECT userTypeNumber FROM tblUserTypeName WHERE UserTypeName=?)`,
+      `SELECT UserTypeName FROM tblUserTypeName WHERE UserTypeNubmer<(SELECT UserTypeNubmer FROM tblUserTypeName WHERE UserTypeName=?)`,
       [UserTypeName]
     );
   }
