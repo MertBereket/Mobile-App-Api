@@ -1,6 +1,7 @@
 const joi = require("joi");
 const HttpStatusCode = require("http-status-codes");
 const CommonValidator = require("./commonValidator");
+const { number } = require("joi");
 
 class MasalarValidator extends CommonValidator {
   constructor() {}
@@ -11,6 +12,7 @@ class MasalarValidator extends CommonValidator {
         .object({
           ID: joi.number().required(),
           Ad: joi.string().max(20).required(),
+          tableNo: joi.number().required(),
         })
         .validateAsync(req.body);
       next();
@@ -24,6 +26,7 @@ class MasalarValidator extends CommonValidator {
       await joi
         .object({
           Ad: joi.string().max(20).required(),
+          tableNo: joi.number().required(),
         })
         .validateAsync(req.body);
       next();

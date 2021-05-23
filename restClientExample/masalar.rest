@@ -16,7 +16,8 @@ Content-Type: application/json
 token: {{token}}
 
 {
-    "Ad": "Bahçe"
+    "Ad": "Bahçe",
+    "tableNo": 12
 }
 
 ###
@@ -36,6 +37,7 @@ Content-Type: application/json
 token: {{token}}
 
 {
-    "ID": 1,
-    "Ad": "Bahçee"
+    "ID": 18,
+    "Ad": "Bahçe",
+    "tableNo": 876
 }
