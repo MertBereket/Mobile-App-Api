@@ -15,10 +15,10 @@ Content-Type: application/json
 token: {{token}}
 
 {
-    "userName": "BarisArslan",
-    "name": "Barış",
-    "surname": "Arslan",
-    "eMail": "baris@project.com",
+    "userName": "AhmetCetiner",
+    "name": "Ahmet",
+    "surname": "Çetiner",
+    "eMail": "ahmet@project.com",
     "password": "password",
     "UserTypeName": "Administrator"
 }
@@ -31,12 +31,12 @@ token: {{token}}
 
 {
     "userName": "MertBereket",
-    "Id": 31,
-    "FirstName": "mert",
-    "LastName": "bereket",
-    "EmailAddress": "mert@project.com",
-    "Password": "password",
-    "UserTypeName": "Administrator"
+    "ID": 1,
+    "name": "Mert",
+    "surname": "Bereket",
+    "eMail": "mert@project.com",
+    "password": "password",
+    "UserTypeName": "Root"
 }
 
 ###
