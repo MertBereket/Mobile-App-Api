@@ -56,7 +56,7 @@ router.delete(
           HttpStatusCode.GONE,
           "There is no such user ID in the system !"
         );
-      res.json("The user registration was deleted successfully.");
+      res.json({"result": "The user registration was deleted successfully."});
     } catch (err) {
       res
         .status(err.status || HttpStatusCode.INTERNAL_SERVER_ERROR)
@@ -74,14 +74,14 @@ router.put(
   async (req, res) => {
     try {
       const result = await userTransactions.updateAsync(req.body, {
-        userID: req.body.userID,
+        ID: req.body.ID,
       });
       if (!result.affectedRows)
         throw errorSender.errorObject(
           HttpStatusCode.GONE,
           "There is no such user ID in the system !"
         );
-      res.json("User information has been updated");
+      res.json({"result": "User information has been updated"});
     } catch (err) {
       res
         .status(err.status || HttpStatusCode.INTERNAL_SERVER_ERROR)
@@ -104,12 +104,12 @@ router.post(
           HttpStatusCode.INTERNAL_SERVER_ERROROR,
           "There was a problem adding the user !"
         );
-      res.json("User registered.");
+      res.json({"result": "User registered."});
     } catch (err) {
       if (err.errno === 1062)
         res
           .status(HttpStatusCode.CONFLICT)
-          .send("Email address is already registered in the system !");
+          .send({"result": "Email address is already registered in the system !"});
       else
         res
           .status(err.status || HttpStatusCode.INTERNAL_SERVER_ERROR)
