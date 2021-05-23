@@ -55,7 +55,7 @@ router.delete(
           HttpStatusCode.GONE,
           "The menu Id you were looking for was not found!"
         );
-      res.json("The menu was deleted successfully.");
+      res.json({"result" : "The menu was deleted successfully."});
     } catch (err) {
       res
         .status(err.status || HttpStatusCode.INTERNAL_SERVER_ERROR)
@@ -79,12 +79,12 @@ router.put(
           HttpStatusCode.GONE,
           "The menu Id you were looking for was not found!"
         );
-      res.json("Menu information has been updated");
+      res.json({"result" : "Menu information has been updated"});
     } catch (err) {
       if (err.errno === 1062)
         res
           .status(HttpStatusCode.CONFLICT)
-          .send("Menu is already registered in the system !");
+          .send({"result" : "Menu is already registered in the system !"});
       else
         res
           .status(err.status || HttpStatusCode.INTERNAL_SERVER_ERROR)
@@ -106,12 +106,12 @@ router.post(
           HttpStatusCode.INTERNAL_SERVER_ERROR,
           "There was a problem adding the menu!"
         );
-      res.json("Menu inserted.");
+      res.json({"result" : "Menu inserted."});
     } catch (err) {
       if (err.errno === 1062)
         res
           .status(HttpStatusCode.CONFLICT)
-          .send("Menu is already registered in the system !");
+          .send({"result" : "Menu is already registered in the system !"});
       else
         res
           .status(err.status || HttpStatusCode.INTERNAL_SERVER_ERROR)
