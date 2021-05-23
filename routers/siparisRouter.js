@@ -56,7 +56,7 @@ router.delete(
           HttpStatusCode.GONE,
           "The siparis Id you were looking for was not found!"
         );
-      res.json("The siparis was deleted successfully.");
+      res.json({"result" : "The siparis was deleted successfully."});
     } catch (err) {
       res
         .status(err.status || HttpStatusCode.INTERNAL_SERVER_ERROR)
@@ -80,12 +80,12 @@ router.put(
           HttpStatusCode.GONE,
           "The siparis Id you were looking for was not found!"
         );
-      res.json("Siparis information has been updated");
+      res.json({"result" : "Siparis information has been updated"});
     } catch (err) {
       if (err.errno === 1062)
         res
           .status(HttpStatusCode.CONFLICT)
-          .send("Siparis is already registered in the system !");
+          .send({"result" : "Siparis is already registered in the system !"});
       else
         res
           .status(err.status || HttpStatusCode.INTERNAL_SERVER_ERROR)
@@ -107,12 +107,12 @@ router.post(
           HttpStatusCode.INTERNAL_SERVER_ERROR,
           "There was a problem adding the siparis!"
         );
-      res.json("Siparis inserted.");
+      res.json({"result" : "Siparis inserted."});
     } catch (err) {
       if (err.errno === 1062)
         res
           .status(HttpStatusCode.CONFLICT)
-          .send("Siparis is already registered in the system !");
+          .send({"result" : "Siparis is already registered in the system !"});
       else
         res
           .status(err.status || HttpStatusCode.INTERNAL_SERVER_ERROR)
