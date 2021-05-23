@@ -55,7 +55,7 @@ router.delete(
           HttpStatusCode.GONE,
           "The masalar Id you were looking for was not found!"
         );
-      res.json("The masalar was deleted successfully.");
+      res.json({"result" : "The masalar was deleted successfully."});
     } catch (err) {
       res
         .status(err.status || HttpStatusCode.INTERNAL_SERVER_ERROR)
@@ -79,12 +79,12 @@ router.put(
           HttpStatusCode.GONE,
           "The masalar Id you were looking for was not found!"
         );
-      res.json("masalar information has been updated");
+      res.json({"result" : "masalar information has been updated"});
     } catch (err) {
       if (err.errno === 1062)
         res
           .status(HttpStatusCode.CONFLICT)
-          .send("masalar is already registered in the system !");
+          .send({"result" : "masalar is already registered in the system !"});
       else
         res
           .status(err.status || HttpStatusCode.INTERNAL_SERVER_ERROR)
@@ -106,12 +106,12 @@ router.post(
           HttpStatusCode.INTERNAL_SERVER_ERROR,
           "There was a problem adding the masalar!"
         );
-      res.json("masalar inserted.");
+      res.json({"result" : "masalar inserted."});
     } catch (err) {
       if (err.errno === 1062)
         res
           .status(HttpStatusCode.CONFLICT)
-          .send("masalar is already registered in the system !");
+          .send({"result" : "masalar is already registered in the system !"});
       else
         res
           .status(err.status || HttpStatusCode.INTERNAL_SERVER_ERROR)
