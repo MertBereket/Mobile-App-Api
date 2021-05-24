@@ -70,7 +70,6 @@ router.put(
   tokenControl,
   authControl,
   userValidator.update,
-  userStatusAuthControl,
   async (req, res) => {
     try {
       const result = await userTransactions.updateAsync(req.body, {
@@ -95,7 +94,6 @@ router.post(
   tokenControl,
   authControl,
   userValidator.insert,
-  userStatusAuthControl,
   async (req, res) => {
     try {
       const result = await userTransactions.insertAsync(req.body);
