@@ -16,9 +16,9 @@ Content-Type: application/json
 token: {{token}}
 
 {
-    "Ad": "İçecek",
-    "Kategori": "Deneme",
-    "Fiyat": 5
+    "Ad": "Americano",
+    "Kategori": 2,
+    "Fiyat": 10
 }
 
 ###
@@ -40,6 +40,6 @@ token: {{token}}
 {
     "ID": 4,
     "Ad": "İçeceklerimiz",
-    "Kategori": "Deneme",
+    "Kategori": 2,
     "Fiyat": 9
 }

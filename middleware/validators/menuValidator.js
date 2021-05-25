@@ -11,7 +11,7 @@ class MenuValidator extends CommonValidator {
         .object({
           ID: joi.number().required(),
           Ad: joi.string().max(20),
-          Kategori: joi.string().max(30),
+          Kategori: joi.number(),
           Fiyat: joi.number(),
         })
         .validateAsync(req.body);
@@ -26,7 +26,7 @@ class MenuValidator extends CommonValidator {
       await joi
         .object({
           Ad: joi.string().max(20).required(),
-          Kategori: joi.string().max(30).required(),
+          Kategori: joi.number().required(),
           Fiyat: joi.number().required(),
         })
         .validateAsync(req.body);
