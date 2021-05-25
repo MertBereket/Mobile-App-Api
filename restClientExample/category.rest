@@ -1,0 +1,41 @@
+GET {{baseUrl}}/category HTTP/1.1
+Content-Type: application/json
+token: {{token}}
+
+###
+
+
+GET {{baseUrl}}/category/1 HTTP/1.1
+Content-Type: application/json
+token: {{token}}
+
+###
+
+POST {{baseUrl}}/category HTTP/1.1
+Content-Type: application/json
+token: {{token}}
+
+{
+    "CategoryName": "Deneme"
+}
+
+###
+
+DELETE {{baseUrl}}/category HTTP/1.1
+Content-Type: application/json
+token: {{token}}
+
+{
+    "ID" : 6
+}
+
+###
+
+PUT {{baseUrl}}/category HTTP/1.1
+Content-Type: application/json
+token: {{token}}
+
+{
+    "ID": 6,
+    "CategoryName": "Denemeler"
+}

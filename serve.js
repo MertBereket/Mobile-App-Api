@@ -13,6 +13,7 @@ app.use(routers.userRouter);
 app.use(routers.masalarRouter);
 app.use(routers.menuRouter);
 app.use(routers.siparisRouter);
+app.use(routers.categoryRouter);
 
 app.use((req, res, next) => {
   res.status(HttpStatusCode.NOT_FOUND).send("404 NOT FOUND");
