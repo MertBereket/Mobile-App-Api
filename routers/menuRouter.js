@@ -41,6 +41,29 @@ router.get(
 );
 
 router.delete(
+  "/menu/delete/:ID",
+  tokenControl,
+  menuValidator.paramId,
+  async (req, res) => {
+    try {
+      const result = await menuTransactions.deleteAsync(req.params, {
+        ID: req.body.ID,
+      });
+      if (!result.affectedRows)
+        throw errorSender.errorObject(
+          HttpStatusCode.GONE,
+          {"result" :"The menu Id you were looking for was not found!"}
+        );
+      res.json({"result" : "The menu was deleted successfully."});
+    } catch (err) {
+      res
+        .status(err.status || HttpStatusCode.INTERNAL_SERVER_ERROR)
+        .send(err.message);
+    }
+  }
+);
+
+router.delete(
   "/menu",
   tokenControl,
   authControl,
@@ -53,7 +76,7 @@ router.delete(
       if (!result.affectedRows)
         throw errorSender.errorObject(
           HttpStatusCode.GONE,
-          "The menu Id you were looking for was not found!"
+          {"result" : "The menu Id you were looking for was not found!"}
         );
       res.json({"result" : "The menu was deleted successfully."});
     } catch (err) {
@@ -77,7 +100,7 @@ router.put(
       if (!result.affectedRows)
         throw errorSender.errorObject(
           HttpStatusCode.GONE,
-          "The menu Id you were looking for was not found!"
+          {"result" : "The menu Id you were looking for was not found!"}
         );
       res.json({"result" : "Menu information has been updated"});
     } catch (err) {
@@ -104,7 +127,7 @@ router.post(
       if (!result.affectedRows)
         throw errorSender.errorObject(
           HttpStatusCode.INTERNAL_SERVER_ERROR,
-          "There was a problem adding the menu!"
+          {"result" : "There was a problem adding the menu!"}
         );
       res.json({"result" : "Menu inserted."});
     } catch (err) {
