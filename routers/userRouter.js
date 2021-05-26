@@ -54,7 +54,7 @@ router.delete(
       if (!result.affectedRows)
         throw errorSender.errorObject(
           HttpStatusCode.GONE,
-          "There is no such user ID in the system !"
+          {"result" : "There is no such user ID in the system !"}
         );
       res.json({"result": "The user registration was deleted successfully."});
     } catch (err) {
@@ -78,7 +78,7 @@ router.put(
       if (!result.affectedRows)
         throw errorSender.errorObject(
           HttpStatusCode.GONE,
-          "There is no such user ID in the system !"
+          {"result" : "There is no such user ID in the system !"}
         );
       res.json({"result": "User information has been updated"});
     } catch (err) {
@@ -100,7 +100,7 @@ router.post(
       if (!result.affectedRows)
         throw errorSender.errorObject(
           HttpStatusCode.INTERNAL_SERVER_ERROROR,
-          "There was a problem adding the user !"
+          {"result" : "There was a problem adding the user !"}
         );
       res.json({"result": "User registered."});
     } catch (err) {
