@@ -53,7 +53,7 @@ router.delete(
       if (!result.affectedRows)
         throw errorSender.errorObject(
           HttpStatusCode.GONE,
-          "The masalar Id you were looking for was not found!"
+          {"result" : "The masalar Id you were looking for was not found!"}
         );
       res.json({"result" : "The masalar was deleted successfully."});
     } catch (err) {
@@ -77,7 +77,7 @@ router.put(
       if (!result.affectedRows)
         throw errorSender.errorObject(
           HttpStatusCode.GONE,
-          "The masalar Id you were looking for was not found!"
+          {"result" : "The masalar Id you were looking for was not found!"}
         );
       res.json({"result" : "masalar information has been updated"});
     } catch (err) {
@@ -104,7 +104,7 @@ router.post(
       if (!result.affectedRows)
         throw errorSender.errorObject(
           HttpStatusCode.INTERNAL_SERVER_ERROR,
-          "There was a problem adding the masalar!"
+          {"result" : "There was a problem adding the masalar!"}
         );
       res.json({"result" : "masalar inserted."});
     } catch (err) {
