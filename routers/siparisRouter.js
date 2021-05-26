@@ -54,7 +54,7 @@ router.delete(
       if (!result.affectedRows)
         throw errorSender.errorObject(
           HttpStatusCode.GONE,
-          "The siparis Id you were looking for was not found!"
+          {"result" : "The siparis Id you were looking for was not found!"}
         );
       res.json({"result" : "The siparis was deleted successfully."});
     } catch (err) {
@@ -78,7 +78,7 @@ router.put(
       if (!result.affectedRows)
         throw errorSender.errorObject(
           HttpStatusCode.GONE,
-          "The siparis Id you were looking for was not found!"
+          {"result" : "The siparis Id you were looking for was not found!"}
         );
       res.json({"result" : "Siparis information has been updated"});
     } catch (err) {
@@ -105,7 +105,7 @@ router.post(
       if (!result.affectedRows)
         throw errorSender.errorObject(
           HttpStatusCode.INTERNAL_SERVER_ERROR,
-          "There was a problem adding the siparis!"
+          {"result" : "There was a problem adding the siparis!"}
         );
       res.json({"result" : "Siparis inserted."});
     } catch (err) {
