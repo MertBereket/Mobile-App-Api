@@ -53,7 +53,7 @@ router.delete(
       if (!result.affectedRows)
         throw errorSender.errorObject(
           HttpStatusCode.GONE,
-          "The category Id you were looking for was not found!"
+          {"result" : "The category Id you were looking for was not found!"}
         );
       res.json({"result" : "The category was deleted successfully."});
     } catch (err) {
@@ -77,7 +77,7 @@ router.put(
       if (!result.affectedRows)
         throw errorSender.errorObject(
           HttpStatusCode.GONE,
-          "The category Id you were looking for was not found!"
+          {"result" : "The category Id you were looking for was not found!"}
         );
       res.json({"result" : "Category information has been updated"});
     } catch (err) {
@@ -104,7 +104,7 @@ router.post(
       if (!result.affectedRows)
         throw errorSender.errorObject(
           HttpStatusCode.INTERNAL_SERVER_ERROR,
-          "There was a problem adding the category!"
+          {"result" : "There was a problem adding the category!"}
         );
       res.json({"result" : "Category inserted."});
     } catch (err) {
