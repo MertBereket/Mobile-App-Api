@@ -30,7 +30,16 @@ token: {{token}}
     "ID" : 5
 }
 
+
 ###
+
+DELETE {{baseUrl}}/masalar/delete/27 HTTP/1.1
+Content-Type: application/json
+token: {{token}}
+
+
+###
+
 
 PUT {{baseUrl}}/masalar HTTP/1.1
 Content-Type: application/json
