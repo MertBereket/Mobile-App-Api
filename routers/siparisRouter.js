@@ -65,6 +65,30 @@ router.delete(
   }
 );
 
+router.delete(
+  "/siparis/delete/:ID",
+  tokenControl,
+  siparisValidator.paramId,
+  async (req, res) => {
+    try {
+      const result = await siparisTransactions.deleteAsync(req.params, {
+        ID: req.body.ID,
+      });
+      if (!result.affectedRows)
+        throw errorSender.errorObject(
+          HttpStatusCode.GONE,
+          {"result" :"The siparis Id you were looking for was not found!"}
+        );
+      res.json({"result" : "The siparis was deleted successfully."});
+    } catch (err) {
+      res
+        .status(err.status || HttpStatusCode.INTERNAL_SERVER_ERROR)
+        .send(err.message);
+    }
+  }
+);
+
+
 router.put(
   "/siparis",
   tokenControl,
