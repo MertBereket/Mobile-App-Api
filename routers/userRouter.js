@@ -65,6 +65,29 @@ router.delete(
   }
 );
 
+router.delete(
+  "/user/delete/:ID",
+  tokenControl,
+  userValidator.paramId,
+  async (req, res) => {
+    try {
+      const result = await userTransactions.deleteAsync(req.params, {
+        ID: req.body.ID,
+      });
+      if (!result.affectedRows)
+        throw errorSender.errorObject(
+          HttpStatusCode.GONE,
+          {"result" :"The user Id you were looking for was not found!"}
+        );
+      res.json({"result" : "The user was deleted successfully."});
+    } catch (err) {
+      res
+        .status(err.status || HttpStatusCode.INTERNAL_SERVER_ERROR)
+        .send(err.message);
+    }
+  }
+);
+
 router.put(
   "/user",
   tokenControl,

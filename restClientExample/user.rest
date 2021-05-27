@@ -48,3 +48,12 @@ token: {{token}}
 {
     "ID": 3
 }
+
+###
+
+
+DELETE {{baseUrl}}/user/delete/4 HTTP/1.1
+Content-Type: application/json
+token: {{token}}
+
+
