@@ -64,6 +64,29 @@ router.delete(
   }
 );
 
+router.delete(
+  "/category/delete/:ID",
+  tokenControl,
+  categoryValidator.paramId,
+  async (req, res) => {
+    try {
+      const result = await categoryTransactions.deleteAsync(req.params, {
+        ID: req.body.ID,
+      });
+      if (!result.affectedRows)
+        throw errorSender.errorObject(
+          HttpStatusCode.GONE,
+          {"result" :"The category Id you were looking for was not found!"}
+        );
+      res.json({"result" : "The category was deleted successfully."});
+    } catch (err) {
+      res
+        .status(err.status || HttpStatusCode.INTERNAL_SERVER_ERROR)
+        .send(err.message);
+    }
+  }
+);
+
 router.put(
   "/category",
   tokenControl,
